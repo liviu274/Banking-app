@@ -6,6 +6,7 @@ import model.Card;
 
 public class CardService {
     private final GenericCrudService<Card, String> crudService = GenericCrudService.getInstance(Card.class);
+    private final LoggingService loggingService = LoggingService.getInstance();
 
     private static CardService instance;
 
@@ -16,11 +17,62 @@ public class CardService {
         return instance;
     }
 
-    public void create(Card card) { crudService.create(card); }
-    public Card read(String cardNumber) { return crudService.read(cardNumber); }
-    public List<Card> readAll() { 
-        return crudService.readAll(); 
+    public void create(Card card) {
+        try {
+            crudService.create(card);
+            loggingService.logCreate("Card", card.getCardNumber(), true, 
+                    "Card created of type: " + card.getType());
+        } catch (Exception e) {
+            loggingService.logCreate("Card", card.getCardNumber(), false, 
+                    "Failed to create card: " + e.getMessage());
+            throw e;
+        }
     }
-    public void update(String cardNumber, Card card) { crudService.update(cardNumber, card); }
-    public void delete(String cardNumber) { crudService.delete(cardNumber); }
+    
+    public Card read(String cardNumber) {
+        try {
+            Card card = crudService.read(cardNumber);
+            String details = card != null ? 
+                    "Card type: " + card.getType() :
+                    "Card not found";
+            loggingService.logRead("Card", cardNumber, card != null, details);
+            return card;
+        } catch (Exception e) {
+            loggingService.logRead("Card", cardNumber, false, "Error: " + e.getMessage());
+            throw e;
+        }
+    }
+    
+    public List<Card> readAll() { 
+        try {
+            List<Card> cards = crudService.readAll(); 
+            loggingService.logRead("Card", "ALL", true, 
+                    "Retrieved " + cards.size() + " cards");
+            return cards;
+        } catch (Exception e) {
+            loggingService.logRead("Card", "ALL", false, "Error: " + e.getMessage());
+            throw e;
+        }
+    }
+    
+    public void update(String cardNumber, Card card) { 
+        try {
+            crudService.update(cardNumber, card);
+            loggingService.logUpdate("Card", cardNumber, true, 
+                    "Updated card type: " + card.getType());
+        } catch (Exception e) {
+            loggingService.logUpdate("Card", cardNumber, false, "Error: " + e.getMessage());
+            throw e;
+        }
+    }
+    
+    public void delete(String cardNumber) { 
+        try {
+            crudService.delete(cardNumber);
+            loggingService.logDelete("Card", cardNumber, true, "Card deleted");
+        } catch (Exception e) {
+            loggingService.logDelete("Card", cardNumber, false, "Error: " + e.getMessage());
+            throw e;
+        }
+    }
 }

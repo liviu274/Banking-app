@@ -1,0 +1,4 @@
+Timestamp,Operation,EntityType,EntityId,Status,Details
+2025-05-30 01:40:22,READ,Client,ALL,SUCCESS,"Retrieved 4 clients"
+2025-05-30 01:40:22,READ,BankAccount,ALL,SUCCESS,"Retrieved 4 accounts"
+2025-05-30 01:40:57,CREATE,Client,C008,SUCCESS,"Client created: Alex Popescu"
