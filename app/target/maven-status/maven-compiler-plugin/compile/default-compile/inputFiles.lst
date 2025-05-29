@@ -1,0 +1,17 @@
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\Main.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\model\BankAccount.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\model\Branch.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\model\Card.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\model\CheckingAccount.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\model\Client.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\model\Loan.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\model\SavingsAccount.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\model\Transaction.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\service\BankAccountService.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\service\BankService.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\service\CardService.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\service\ClientService.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\service\CrudService.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\service\GenericCrudService.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\service\InteractiveMenuService.java
+C:\Users\Liviu\Documents\PAO\Banking-app\app\src\main\java\service\LoanService.java
