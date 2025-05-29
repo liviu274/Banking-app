@@ -14,6 +14,10 @@ public class BankAccount {
         this.transactions = new ArrayList<>();
     }
 
+    public BankAccount() {
+        this.transactions = new ArrayList<>();
+    }
+
     public String getIban() { return iban; }
     public double getBalance() { return balance; }
     public List<Transaction> getTransactions() { return transactions; }

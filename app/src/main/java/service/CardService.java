@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import model.Card;
 
 public class CardService {
@@ -16,6 +18,9 @@ public class CardService {
 
     public void create(Card card) { crudService.create(card); }
     public Card read(String cardNumber) { return crudService.read(cardNumber); }
+    public List<Card> readAll() { 
+        return crudService.readAll(); 
+    }
     public void update(String cardNumber, Card card) { crudService.update(cardNumber, card); }
     public void delete(String cardNumber) { crudService.delete(cardNumber); }
 }

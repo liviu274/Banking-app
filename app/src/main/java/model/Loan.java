@@ -12,6 +12,11 @@ public class Loan {
         this.interestRate = interestRate;
         this.client = client;
     }
+
+        public Loan()
+    {
+        
+    }
     
     // Add getter for ID (this is what GenericCrudService is looking for)
     public String getId() {

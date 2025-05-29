@@ -109,8 +109,8 @@ public class InteractiveMenuService {
         System.out.println("\n----- VIEW CLIENT DETAILS -----");
         String clientId = getStringInput("Enter client ID: ");
         // Implement this method in BankService to retrieve client details
-        // bankService.getClientDetails(clientId);
-        System.out.println("This feature is not implemented yet.");
+        bankService.viewClientDetails(clientId);
+        // System.out.println("This feature is not implemented yet.");
     }
     
     // ACCOUNT MANAGEMENT
@@ -121,7 +121,6 @@ public class InteractiveMenuService {
             System.out.println("1. Create Checking Account");
             System.out.println("2. Create Savings Account");
             System.out.println("3. View Account Balance");
-            System.out.println("4. View Transaction History");
             System.out.println("0. Back to Main Menu");
             System.out.println("=============================");
             
@@ -130,7 +129,6 @@ public class InteractiveMenuService {
                 case 1 -> createCheckingAccount();
                 case 2 -> createSavingsAccount();
                 case 3 -> viewAccountBalance();
-                case 4 -> viewTransactionHistory();
                 case 0 -> back = true;
                 default -> System.out.println("Invalid option. Please try again.");
             }

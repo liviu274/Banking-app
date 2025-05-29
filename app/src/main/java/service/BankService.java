@@ -35,6 +35,23 @@ public class BankService {
         accountService = BankAccountService.getInstance();
         cardService = CardService.getInstance();
         loanService = LoanService.getInstance();
+
+        initializeFromDatabase();
+    }
+
+    // Initialize in-memory data from database
+    private void initializeFromDatabase() {
+        // Load clients
+        List<Client> clients = clientService.readAll();
+        for (Client client : clients) {
+            clientById.put(client.getClientId(), client);
+        }
+        
+        // Load accounts
+        List<BankAccount> accounts = accountService.readAll();
+        for (BankAccount account : accounts) {
+            accountByIban.put(account.getIban(), account);
+        }
     }
 
     public static BankService getInstance() {
@@ -53,6 +70,18 @@ public class BankService {
             // Persist to database
             clientService.create(newClient);
             System.out.println("Client " + firstName + " " + lastName + " added successfully.");
+        }
+    }
+
+    public void viewClientDetails(String clientID){
+        Client c = clientById.get(clientID);
+        if (c != null) {
+            System.out.println("Client ID: " + c.getClientId());
+            System.out.println("Name: " + c.getFirstName() + " " + c.getLastName());
+            System.out.println("Email: " + c.getEmail());
+            System.out.println("Phone: " + c.getPhoneNumber());            
+        } else {
+            System.out.println("Client not found!");
         }
     }
 

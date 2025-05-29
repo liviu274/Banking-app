@@ -20,6 +20,10 @@ public class Client {
         this.accounts = new ArrayList<>(); // Initialize the accounts list
     }
 
+    public Client() {
+        this.accounts = new ArrayList<>();
+    }
+
     public String getFirstName() {
         return firstName;
     }

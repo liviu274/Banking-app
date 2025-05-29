@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import model.BankAccount;
 
 public class BankAccountService {
@@ -16,6 +18,9 @@ public class BankAccountService {
 
     public void create(BankAccount account) { crudService.create(account); }
     public BankAccount read(String iban) { return crudService.read(iban); }
+    public List<BankAccount> readAll() { 
+        return crudService.readAll(); 
+    }
     public void update(String iban, BankAccount account) { crudService.update(iban, account); }
     public void delete(String iban) { crudService.delete(iban); }
 }

@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import model.Loan;
 
 public class LoanService {
@@ -16,6 +18,9 @@ public class LoanService {
 
     public void create(Loan loan) { crudService.create(loan); }
     public Loan read(String id) { return crudService.read(id); }
+    public List<Loan> readAll() { 
+        return crudService.readAll(); 
+    }
     public void update(String id, Loan loan) { crudService.update(id, loan); }
     public void delete(String id) { crudService.delete(id); }
 }

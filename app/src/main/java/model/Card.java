@@ -11,6 +11,10 @@ public class Card {
         this.linkedAccount = linkedAccount;
     }
 
+    public Card() {
+        
+    }
+
     public String getCardNumber() { return cardNumber; }
     public String getType() { return type; }
     public BankAccount getLinkedAccount() { return linkedAccount; }
