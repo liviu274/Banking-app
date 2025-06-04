@@ -34,23 +34,11 @@ public class LoggingService {
     public void logOperation(String operation, String entityType, String entityId, boolean success, String details) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(LOG_FILE, true))) {
             StringBuilder logEntry = new StringBuilder();
-            
-            // Timestamp
             logEntry.append(LocalDateTime.now().format(formatter)).append(",");
-            
-            // Operation type (CREATE, READ, UPDATE, DELETE)
             logEntry.append(operation).append(",");
-            
-            // Entity type (Client, Account, Card, Loan)
             logEntry.append(entityType).append(",");
-            
-            // Entity ID
             logEntry.append(entityId).append(",");
-            
-            // Success or failure
             logEntry.append(success ? "SUCCESS" : "FAILURE").append(",");
-            
-            // Additional details (escape commas in details)
             logEntry.append("\"").append(details.replace("\"", "\"\"")).append("\"");
             
             writer.println(logEntry);
